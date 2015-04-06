@@ -39,31 +39,28 @@ class EditSavePage(webapp.RequestHandler):
 
 class ShowPage(webapp.RequestHandler):
   def get(self, id):
-    try:
-      id = int(id)
-      node = MyNode.get_by_id(id)
+    id = int(id)
+    node = MyNode.get_by_id(id)
 
-      l = MyVertice.all()
-      l.filter("left =", node)
-      l.order("created")
-      left = l.fetch(10000);
+    l = MyVertice.all()
+    l.filter("left =", node)
+    l.order("created")
+    left = l.fetch(None);
 
-      r = MyVertice.all()
-      r.filter("right =", node)
-      r.order("created")
-      right = r.fetch(10000);
-      
-      data = {
-        'left': left,
-        'right': right,
-        'center': node,
-        'title': node.name,
-        'content': "templates/show.html",
-      }
-      path = os.path.join(os.path.dirname(__file__), 'main.html')
-      self.response.out.write(template.render(path, data))
-    except:
-      self.error(404)
+    r = MyVertice.all()
+    r.filter("right =", node)
+    r.order("created")
+    right = r.fetch(None);
+    
+    data = {
+      'left': left,
+      'right': right,
+      'center': node,
+      'title': node.name,
+      'content': "templates/show.html",
+    }
+    path = os.path.join(os.path.dirname(__file__), 'main.html')
+    self.response.out.write(template.render(path, data))
 
 class AddPage(webapp.RequestHandler):
   def get(self):

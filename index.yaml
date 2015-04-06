@@ -1,0 +1,17 @@
+indexes:
+
+- kind: MyVertice
+  properties:
+  - name: status
+  - name: created
+    direction: desc
+
+- kind: MyVertice
+  properties:
+  - name: left
+  - name: created
+
+- kind: MyVertice
+  properties:
+  - name: right
+  - name: created

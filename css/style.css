@@ -96,7 +96,7 @@ form.inline p {margin-bottom:0;}
 
 body{margin:1em; font-size:1.2em;}
 table#show{width:auto}
-table#show td{min-width:200px;border-right: 1px solid silver;vertical-align:top;}
+table#show td{border-right: 1px solid silver;vertical-align:top;}
 table#show td#rf{border-right:none}
 #cf{text-align:center}
 #lf{text-align:right}
