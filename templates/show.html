@@ -23,6 +23,15 @@
     </td>
   </tr>
 </table>
+{% for fact in right %}
+  <p><a href="/show/{{fact.left.key.id}}">{{fact.left.name}}</a> {{fact.action.name}} {{center.name}} {% if fact.dfrom or fact.dto %}<span>({{fact.dfrom}} - {{fact.dto}})</span>{% endif %} {% if fact.ref %}<a href="{{ fact.ref }}" target="_blank">#</a>{% endif %}<p>
+{% endfor %}
+{% for fact in left %}
+  <p>{{center.name}} {{fact.action.name}} <a href="/show/{{fact.right.key.id}}">{{fact.right.name}}</a>
+    {% if fact.dfrom or fact.dto %}<span>({{fact.dfrom}} - {{fact.dto}})</span>{% endif %}
+    {% if fact.ref %}<a href="{{ fact.ref }}" target="_blank">#</a>{% endif %}</p>
+{% endfor %}
+<hr/>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_shortname = 'rodoslovie'; // required: replace example with your forum shortname
